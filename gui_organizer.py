@@ -11,7 +11,8 @@ def clean_folder():
     file_types = {
         '.pdf': 'Documents', '.docx': 'Documents', '.txt': 'Documents',
         '.jpg': 'Images', '.jpeg': 'Images', '.png': 'Images',
-        '.zip': 'Compressed', '.mp4': 'Videos', '.exe': 'Installers'
+        '.zip': 'Compressed', '.mp4': 'Videos', '.mp3': 'Videos', 
+        '.exe': 'Installers'
     }
 
     # Clear the text box in the app before starting
@@ -44,8 +45,8 @@ def clean_folder():
                     shutil.move(file_path, destination_path)
                     final_name = os.path.basename(destination_path)
                     
-                    # Instead of printing to terminal, log it to the app's visual window
-                    log_box.insert(tk.END, f" Moved: {filename} -> {folder_name}/{final_name}\n")
+                    # Show each moved file clearly in the activity log
+                    log_box.insert(tk.END, f"{filename} has moved to {folder_name}.\n")
                     files_moved_count += 1
 
         if files_moved_count == 0:
